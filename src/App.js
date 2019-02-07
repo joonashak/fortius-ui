@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Alert from './components/utils/Alert'
+import './styles/main.sass'
 
 
 const HelloWorld = () => <h1>Hello, World!</h1>

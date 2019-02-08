@@ -1,6 +1,103 @@
-$font-stack:    Helvetica, sans-serif
-$primary-color: #333
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Open+Sans:300,400')
+@import ~bootstrap/scss/bootstrap
+
+$font: Open Sans, sans-serif
+$accent-font: Audiowide, sans-serif
+// Themed colors
+$darkest: #1D2731
+$dark: #0B3C5D
+$light: #328CC1
+$accent: #EBC317
+$light-text: #FDFDFD
 
 body
-  font: 100% $font-stack
-  color: $primary-color
+  font: 100% $font
+  font-weight: 300
+  color: $light-text
+  background-color: $darkest
+
+// Layout
+
+.fortius-view
+  padding: 0
+  min-height: 100vh
+
+  nav
+    background-color: $darkest !important
+    padding: 15px
+
+    .logo
+      margin: 0 auto
+      max-width: 328px
+      width: 98%
+
+  .content
+    background-color: $dark
+    margin: 0
+
+    .col-12
+      padding: 0
+
+  footer
+    position: fixed
+    bottom: 0
+    font-style: italic
+    font-size: 11px
+    text-align: right
+    width: 100%
+    padding: 3px 5px
+
+
+// Typography
+
+a
+  color: $light-text
+  text-decoration: underline
+  
+h4
+  font-size: 20px
+  font-weight: 300
+
+p
+  font-size: 14px
+  font-weight: 300
+
+// Forms and buttons
+
+.button
+  background-color: $light
+  color: $light-text
+  border: 0
+  border-radius: 0
+  font: 30px $accent-font
+  text-transform: uppercase
+  height: 65px
+  display: block
+  width: 100%
+  padding: 0
+  margin: 0
+
+.button:active
+  background-color: $light !important
+  color: $accent !important
+
+.button:focus
+  @extend .button:active
+  outline: none
+
+.button-accent
+  @extend .button
+  background-color: $accent
+
+.button-accent:active
+  background-color: $accent !important
+  color: $dark !important
+
+.button-accent:focus
+  @extend .button-accent:active
+  outline: none
+
+// Utility classes
+
+.center
+  text-align: center

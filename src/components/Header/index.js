@@ -23,6 +23,7 @@ export default class Header extends React.Component {
 
   render() {
     const { expanded } = this.state;
+    const { title } = this.props;
 
     return (
       <Navbar
@@ -33,7 +34,15 @@ export default class Header extends React.Component {
         onToggle={this.toggle}
       >
         {/* TODO: Embed SVG */}
-        <Image src={logo} className="logo" />
+        {
+          title ? (
+            <span className="view-title">
+              {title}
+            </span>
+          ) : (
+            <Image src={logo} className="logo" />
+          )
+        }
         {
           // <Navbar.Toggle />
         }

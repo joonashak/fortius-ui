@@ -12,7 +12,7 @@ import NavButton from '../utils/NavButton';
 
 export default ({ onSubmit }) => (
   <Container className="fortius-view" fluid>
-      <Header />
+      <Header title="Log In" />
       <Row className="content center pt-4">
         <Col xs={12}>
           <Form onSubmit={onSubmit}>

@@ -106,7 +106,7 @@ p
 
 input
   background-color: $light
-  border: none
+  border: 2px solid $light
   border-bottom: 2px solid $accent
   display: block
   margin: 2rem auto 0 auto
@@ -114,6 +114,11 @@ input
   width: 100%
   font: 28px $font
   font-weight: 400
+  color: $darkest
+
+input:focus
+  outline: none
+  border: 2px solid $accent
 
 label
   width: 100%

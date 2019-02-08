@@ -5,10 +5,12 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import alertReducer from './reducers/alertReducer'
+import userReducer from './reducers/userReducer';
 
 
 const reducers = combineReducers({
   alert: alertReducer,
+  user: userReducer,
 });
 const store = createStore(reducers);
 store.subscribe(() => localStorage.setItem('token', store.getState().user.token));

@@ -12,18 +12,32 @@ module.exports = {
       'react/prop-types': 0,
       'react/destructuring-assignment': 0,
       'react/no-confusing-arrow': 0,
-      // Allow shadow names for redux actions
-      // (Much cleaner syntax and confusing only if you don't know redux, in which case you'll be confused anyway.)
+      /**
+       * Allow shadow names for redux actions. All dispatchers used through props must be added to the list below.
+       * 
+       * (Leads to much cleaner syntax in source and is confusing really only if you don't know redux, in which
+       * case you'll be confused anyway.)
+       */
       'no-shadow': [
-          'error',
+          2,
           {
               allow: [
                   'unsetToken',
                   'resetAlert',
+                  'setToken',
+                  'newAlert',
               ]
           }
       ],
       // Nested ternaries are great! If *expressions* vs. statements...
       'no-nested-ternary': 0,
+      // Deprecated, replaced with label-has-associated-control (configured below)
+      'jsx-a11y/label-has-for': 0,
+      'jsx-a11y/label-has-associated-control': [
+          2,
+          {
+              'controlComponents': ['Text']
+          }
+      ],
   },
 };

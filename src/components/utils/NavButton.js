@@ -10,14 +10,14 @@ const NavButton = ({
   text,
   history,
   to,
-  accent
+  accent,
 }) => (
   <button
     type="button"
     onClick={() => history.push(to)}
     className={accent ? 'button-accent' : 'button'}
   >
-    {children ? children : text}
+    {children || text}
   </button>
 );
 

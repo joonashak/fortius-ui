@@ -25,7 +25,11 @@ export default () => (
       </Col>
     </Row>
     <footer>
-      Created by Joonas Häkkinen. Source available <a href="https://github.com/joonashak/fortius">here</a>.
+      {/* TODO: This (spacing) looks ugly but is enforced by airbnb style rules. Better way? */}
+      Created by Joonas Häkkinen. Source available
+      {' '}
+      <a href="https://github.com/joonashak/fortius">here</a>
+      .
     </footer>
   </Container>
 );

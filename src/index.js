@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import alertReducer from './reducers/alertReducer'
+import alertReducer from './reducers/alertReducer';
 import userReducer from './reducers/userReducer';
 
 

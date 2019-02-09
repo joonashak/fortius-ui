@@ -1,3 +1,6 @@
+/**
+ * Fortius' alerts are heavily modified react-bootstrap Modals.
+ */
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -14,9 +17,11 @@ class Alert extends React.Component {
   componentDidUpdate(prevProps) {
     const { message, resetAlert } = this.props;
 
+    /*
     if (prevProps.message === '' && message !== '') {
-      setTimeout(() => resetAlert(), 1000);
+      setTimeout(() => resetAlert(), 5000);
     }
+    */
   }
 
   render() {
@@ -26,7 +31,7 @@ class Alert extends React.Component {
 
     return (
       <div
-        className={`alert alert-${variant} shadow-sm`}
+        className={`modal modal-${variant}`}
         role="alert"
       >
         {message}

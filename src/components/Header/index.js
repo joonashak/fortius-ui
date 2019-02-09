@@ -3,9 +3,8 @@
  */
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo.svg';
 
 
 export default class Header extends React.Component {
@@ -46,7 +45,6 @@ export default class Header extends React.Component {
         {
           // <Navbar.Toggle />
         }
-        
       </Navbar>
     );
   }

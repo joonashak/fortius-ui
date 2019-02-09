@@ -20,10 +20,8 @@ export default ({ onSubmit }) => (
             formApi => (
               <form onSubmit={formApi.submitForm}>
                 <div className="fields">
-                  <label htmlFor="username">
-                    <Text field="username" id="username" />
-                    Username
-                  </label>
+                  <Text field="username" type="text" id="username" />
+                  <label htmlFor="username">Username</label>
                   <Text field="password" type="password" id="password" />
                   <label htmlFor="password">Password</label>
                 </div>

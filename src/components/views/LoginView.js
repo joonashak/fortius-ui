@@ -3,6 +3,10 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Header from '../Header';
 import { setToken } from '../../reducers/userReducer';
 import { newAlert } from '../../reducers/alertReducer';
 import loginService from '../../services/loginService';
@@ -26,7 +30,14 @@ const LoginView = ({ setToken, newAlert }) => {
   };
 
   return (
-    <LoginForm onSubmit={login} />
+    <Container className="fortius-view" fluid>
+      <Header title="Log In" />
+      <Row className="content center pt-4">
+        <Col xs={12}>
+          <LoginForm onSubmit={login} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

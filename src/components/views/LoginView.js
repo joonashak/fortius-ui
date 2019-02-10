@@ -13,14 +13,16 @@ const mapDispatchToProps = { setToken, newAlert };
 
 const LoginView = ({ setToken, newAlert }) => {
   const login = async (data) => {
-    newAlert('Logging in...', 'danger');
+    newAlert('Logging in...', 'info');
 
     const { username, password } = data;
-    const { token } = await loginService.login(username, password);
+    const { token, error } = await loginService.login(username, password);
 
-    if (token) {
-      setToken(token);
-    }
+    token
+      ? setToken(token)
+      : (error.response && error.response.status === 401)
+      ? newAlert('Invalid username or password.', 'error')
+      : newAlert('Could not login due to an unknown error.', 'error');
   };
 
   return (
@@ -28,4 +30,4 @@ const LoginView = ({ setToken, newAlert }) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(LoginView)
+export default connect(null, mapDispatchToProps)(LoginView);

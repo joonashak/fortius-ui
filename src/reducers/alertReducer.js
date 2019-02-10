@@ -1,6 +1,6 @@
 const initialState = {
   message: '',
-  variant: 'danger',
+  variant: 'info',
 };
 
 export default (state = initialState, action) => {

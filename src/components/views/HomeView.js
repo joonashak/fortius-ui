@@ -7,11 +7,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from '../Header';
 import NavButton from '../utils/NavButton';
+import PublicMenu from '../Header/PublicMenu';
 
 
 export default () => (
   <Container className="fortius-view" fluid>
-    <Header />
+    <Header>
+      <PublicMenu />
+    </Header>
     <Row className="content center pt-5">
       <Col xs={12}>
         <h4>
@@ -25,11 +28,8 @@ export default () => (
       </Col>
     </Row>
     <footer>
-      {/* TODO: This (spacing) looks ugly but is enforced by airbnb style rules. Better way? */}
-      Created by Joonas Häkkinen. Source available
-      {' '}
-      <a href="https://github.com/joonashak/fortius">here</a>
-      .
+      {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+      Created by Joonas Häkkinen. Source available <a href="https://github.com/joonashak/fortius">here</a>.
     </footer>
   </Container>
 );

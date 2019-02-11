@@ -1,12 +1,13 @@
-/**
- * Header with title and menu.
- */
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import logo from '../../assets/logo.svg';
+import Menu from './Menu';
 
-
+/**
+ * Header with a title and a drop-down menu.
+ * In order to render a menu, pass a `<div>` of `react-bootstrap/Nav` components as `children`.
+ */
 export default class Header extends React.Component {
   constructor() {
     super();
@@ -18,19 +19,16 @@ export default class Header extends React.Component {
 
   toggle = () => this.setState(prevState => ({ expanded: !prevState.expanded }));
 
-  close = () => this.setState({ expanded: false });
-
   render() {
     const { expanded } = this.state;
-    const { title } = this.props;
+    const { children, title } = this.props;
 
     return (
       <Navbar
-        bg="dark"
-        variant="dark"
-        expand="md"
+        expand={false}
         expanded={expanded}
         onToggle={this.toggle}
+        onClick={this.toggle}
       >
         {/* TODO: Embed SVG */}
         {
@@ -42,9 +40,7 @@ export default class Header extends React.Component {
             <Image src={logo} className="logo" />
           )
         }
-        {
-          // <Navbar.Toggle />
-        }
+        {children ? <Menu>{children}</Menu> : null}
       </Navbar>
     );
   }

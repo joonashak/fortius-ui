@@ -11,6 +11,7 @@ import { setToken } from '../../reducers/userReducer';
 import { newAlert } from '../../reducers/alertReducer';
 import loginService from '../../services/loginService';
 import LoginForm from '../forms/LoginForm';
+import PublicMenu from '../Header/PublicMenu';
 
 
 const mapDispatchToProps = { setToken, newAlert };
@@ -31,7 +32,9 @@ const LoginView = ({ setToken, newAlert }) => {
 
   return (
     <Container className="fortius-view" fluid>
-      <Header title="Log In" />
+      <Header title="Log In">
+        <PublicMenu />
+      </Header>
       <Row className="content center pt-4">
         <Col xs={12}>
           <LoginForm onSubmit={login} />

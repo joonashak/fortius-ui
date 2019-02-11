@@ -11,6 +11,7 @@ import Header from '../Header';
 import SignupForm from '../forms/SignupForm';
 import userService from '../../services/userService';
 import { newAlert, resetAlert } from '../../reducers/alertReducer';
+import PublicMenu from '../Header/PublicMenu';
 
 
 const mapDispatchToProps = { newAlert, resetAlert };
@@ -32,7 +33,9 @@ const SignupView = ({ newAlert, resetAlert, history }) => {
 
   return (
     <Container className="fortius-view" fluid>
-      <Header title="Sign Up" />
+      <Header title="Sign Up">
+        <PublicMenu />
+      </Header>
       <Row className="content center pt-4">
         <Col xs={12}>
           <SignupForm onSubmit={register} />

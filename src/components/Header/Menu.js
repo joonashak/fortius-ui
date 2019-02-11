@@ -1,13 +1,9 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
 
 
-export default () => (
+export default ({ children }) => (
   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      The Link
-    </Nav>
-    <Nav className="ml-auto">
-      Login
-    </Nav>
+    {children}
   </Navbar.Collapse>
 );

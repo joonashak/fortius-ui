@@ -22,15 +22,6 @@ body
   padding: 0
   min-height: 100vh
 
-  nav
-    background-color: $darkest !important
-    padding: 15px
-
-    .logo
-      margin: 0 auto
-      max-width: 328px
-      width: 98%
-
   .content
     background-color: $dark
     margin: 0
@@ -80,10 +71,30 @@ body
 
 // Menu
 
+nav
+  background-color: $darkest !important
+  padding: 0 !important
+
+.logo
+  margin: 15px auto
+  max-width: 328px
+  width: 98%
+
 .view-title
   font-size: 34px
   color: $accent
-  margin: -8px 7px
+  margin: 7px 20px
+
+.navbar-nav
+  a
+    border-top: 1px solid $accent
+    text-decoration: none
+    font-size: 22px
+
+.menu-icon
+  color: $light
+  width: 32px
+  margin: 13px
 
 // Typography
 

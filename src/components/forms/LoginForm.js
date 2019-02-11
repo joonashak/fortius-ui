@@ -27,6 +27,7 @@ export default ({ onSubmit }) => (
           <InputField
             name="password"
             label="Password"
+            type="password"
           />
         </div>
         <button type="submit" className="button-accent mt-5">Log In</button>

@@ -12,7 +12,7 @@ export default ({
     <Field name={name} />
     <label htmlFor={name}>{label}</label>
     {
-      errors[name] && touched[name]
+      errors && touched && errors[name] && touched[name]
         ? (
           <label htmlFor={name} className="validation-error">
             {errors[name]}

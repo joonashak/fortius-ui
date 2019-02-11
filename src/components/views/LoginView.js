@@ -10,7 +10,7 @@ import Header from '../Header';
 import { setToken } from '../../reducers/userReducer';
 import { newAlert } from '../../reducers/alertReducer';
 import loginService from '../../services/loginService';
-import LoginForm from '../auth/LoginForm';
+import LoginForm from '../forms/LoginForm';
 
 
 const mapDispatchToProps = { setToken, newAlert };

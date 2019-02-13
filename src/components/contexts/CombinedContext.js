@@ -14,17 +14,12 @@ export const CombinedProvider = ({ children }) => (
 
 export const CombinedConsumer = ({ children }) => (
   <AlertConsumer>
-    {({ message, variant, newAlert, resetAlert }) => (
+    {(alertContext) => (
       <UserConsumer>
-        {({ token, setToken, unsetToken }) => (
+        {(userContext) => (
           children({
-            message,
-            variant,
-            newAlert,
-            resetAlert,
-            token,
-            setToken,
-            unsetToken,
+            alertContext,
+            userContext,
           })
         )}
       </UserConsumer>

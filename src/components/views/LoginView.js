@@ -2,19 +2,15 @@
  * A view for the user to log in.
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from '../Header';
-import { setToken } from '../../reducers/userReducer';
-import { newAlert } from '../../reducers/alertReducer';
 import loginService from '../../services/loginService';
 import LoginForm from '../forms/LoginForm';
 import PublicMenu from '../Header/PublicMenu';
+import { CombinedConsumer } from '../contexts/CombinedContext';
 
-
-const mapDispatchToProps = { setToken, newAlert };
 
 const LoginView = ({ setToken, newAlert }) => {
   const login = async (data) => {
@@ -44,4 +40,10 @@ const LoginView = ({ setToken, newAlert }) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(LoginView);
+export default (props) => (
+  <CombinedConsumer>
+    {({ alertContext, userContext }) => (
+      <LoginView {...props} newAlert={alertContext.newAlert} setToken={userContext.setToken} />
+    )}
+  </CombinedConsumer>
+);

@@ -2,7 +2,6 @@
  * Display registration form for new users.
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -10,11 +9,9 @@ import Col from 'react-bootstrap/Col';
 import Header from '../Header';
 import SignupForm from '../forms/SignupForm';
 import userService from '../../services/userService';
-import { newAlert, resetAlert } from '../../reducers/alertReducer';
 import PublicMenu from '../Header/PublicMenu';
+import { CombinedConsumer } from '../contexts/CombinedContext';
 
-
-const mapDispatchToProps = { newAlert, resetAlert };
 
 const SignupView = ({ newAlert, resetAlert, history }) => {
   const register = async (data) => {
@@ -45,6 +42,16 @@ const SignupView = ({ newAlert, resetAlert, history }) => {
   );
 };
 
-export default withRouter(
-  connect(null, mapDispatchToProps)(SignupView),
+const SignupViewWithConsumer = (props) => (
+  <CombinedConsumer>
+    {({ alertContext }) => (
+      <SignupView
+        {...props}
+        newAlert={alertContext.newAlert}
+        resetAlert={alertContext.resetAlert}
+      />
+    )}
+  </CombinedConsumer>
 );
+
+export default withRouter(SignupViewWithConsumer);

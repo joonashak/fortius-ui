@@ -1,4 +1,5 @@
 import React from 'react';
+import { configureToken } from '../../config';
 
 
 const UserContext = React.createContext();
@@ -14,10 +15,9 @@ export class UserProvider extends React.Component {
     };
   }
 
-  // setToken = (token) => this.setState({ token });
   setToken = (token) => {
-    console.log('token set via context (y)');
     this.setState({ token });
+    configureToken(token);
   };
 
   unsetToken = () => this.setState({ token: '' });

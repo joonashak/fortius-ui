@@ -12,6 +12,7 @@ module.exports = {
       'react/prop-types': 0,
       'react/destructuring-assignment': 0,
       'react/no-confusing-arrow': 0,
+      'arrow-parens': 0,
       /*
        * Allow shadow names for redux actions. All dispatchers used through props must be added to the list below.
        * 

@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import { resetAlert } from '../../reducers/alertReducer';
+import { AlertConsumer } from '../contexts/AlertContext';
 
 
 const mapStateToProps = (state) => {
@@ -46,13 +47,28 @@ Alert.defaultProps = {
 Alert.propTypes = {
   message: PropTypes.string,
   variant: (props, propName, componentName) => { // eslint-disable-line consistent-return
-    const valids = ['info', 'error'];
+    const valids = ['', 'info', 'error'];
     if (!valids.includes(props[propName])) {
       return new Error(`Invalid prop '${propName}' supplied to component '${componentName}'`);
     }
   },
 };
 
+export default (props) => (
+  <AlertConsumer>
+    {({ message, variant, resetAlert }) => (
+      <Alert
+        {...props}
+        message={message}
+        variant={variant}
+        resetAlert={resetAlert}
+      />
+    )}
+  </AlertConsumer>
+);
+
+/*
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(Alert),
 );
+*/

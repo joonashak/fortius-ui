@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
+import { MdMenu } from 'react-icons/md';
 import logo from '../../assets/logo.svg';
 import Menu from './Menu';
 
@@ -39,6 +40,11 @@ export default class Header extends React.Component {
           ) : (
             <Image src={logo} className="logo" />
           )
+        }
+        {
+          children && title ? (
+            <MdMenu size="100%" className="hamburger" />
+          ) : null
         }
         {children ? <Menu>{children}</Menu> : null}
       </Navbar>

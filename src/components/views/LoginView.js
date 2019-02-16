@@ -8,8 +8,8 @@ import Col from 'react-bootstrap/Col';
 import Header from '../Header';
 import loginService from '../../services/loginService';
 import LoginForm from '../forms/LoginForm';
-import PublicMenu from '../Header/PublicMenu';
 import { CombinedConsumer } from '../contexts/CombinedContext';
+import DynamicMenu from '../Header/DynamicMenu';
 
 
 const LoginView = ({ setToken, newAlert }) => {
@@ -29,7 +29,7 @@ const LoginView = ({ setToken, newAlert }) => {
   return (
     <Container className="fortius-view" fluid>
       <Header title="Log In">
-        <PublicMenu />
+        <DynamicMenu />
       </Header>
       <Row className="content center pt-4">
         <Col xs={12}>

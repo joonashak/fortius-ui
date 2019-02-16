@@ -9,8 +9,8 @@ import Col from 'react-bootstrap/Col';
 import Header from '../Header';
 import SignupForm from '../forms/SignupForm';
 import userService from '../../services/userService';
-import PublicMenu from '../Header/PublicMenu';
 import { CombinedConsumer } from '../contexts/CombinedContext';
+import DynamicMenu from '../Header/DynamicMenu';
 
 
 const SignupView = ({ newAlert, resetAlert, history }) => {
@@ -31,7 +31,7 @@ const SignupView = ({ newAlert, resetAlert, history }) => {
   return (
     <Container className="fortius-view" fluid>
       <Header title="Sign Up">
-        <PublicMenu />
+        <DynamicMenu />
       </Header>
       <Row className="content center pt-4">
         <Col xs={12}>

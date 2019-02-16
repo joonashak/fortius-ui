@@ -7,13 +7,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Header from '../Header';
 import NavButton from '../utils/NavButton';
-import PublicMenu from '../Header/PublicMenu';
+import DynamicMenu from '../Header/DynamicMenu';
 
 
 export default () => (
   <Container className="fortius-view" fluid>
     <Header>
-      <PublicMenu />
+      <DynamicMenu />
     </Header>
     <Row className="content center pt-5">
       <Col xs={12}>

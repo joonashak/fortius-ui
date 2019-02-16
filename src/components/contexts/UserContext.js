@@ -11,16 +11,19 @@ export class UserProvider extends React.Component {
     super(props);
 
     this.state = {
-      token: '',
+      token: localStorage.getItem('token') || '',
     };
   }
 
   setToken = (token) => {
     this.setState({ token });
+    localStorage.setItem('token', token);
     configureToken(token);
   };
 
   unsetToken = () => this.setState({ token: '' });
+
+  loggedIn = () => this.state.token !== '';
 
   render = () => (
     <UserContext.Provider
@@ -28,6 +31,7 @@ export class UserProvider extends React.Component {
         ...this.state,
         setToken: this.setToken,
         unsetToken: this.unsetToken,
+        loggedIn: this.loggedIn,
       }}
     >
       {this.props.children}

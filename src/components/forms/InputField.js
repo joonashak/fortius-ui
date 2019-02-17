@@ -12,17 +12,24 @@ const InputField = ({
   touched,
   label,
   type,
+  footnote,
 }) => (
   <div>
     <Field name={name} type={type} />
     <label htmlFor={name}>{label}</label>
-    {
-      errors && touched && errors[name] && touched[name]
-        ? (
-          <label htmlFor={name} className="validation-error">
-            {errors[name]}
-          </label>
-        ) : null
+    {errors && touched && errors[name] && touched[name]
+      ? (
+        <label htmlFor={name} className="validation-error">
+          {errors[name]}
+        </label>
+      ) : null
+    }
+    {footnote
+      ? (
+        <label htmlFor={name} className="footnote">
+          {footnote}
+        </label>
+      ) : null
     }
   </div>
 );
@@ -32,6 +39,7 @@ InputField.defaultProps = {
   type: 'text',
   errors: null,
   touched: null,
+  footnote: null,
 };
 
 InputField.propTypes = {
@@ -45,6 +53,8 @@ InputField.propTypes = {
   errors: PropTypes.shape({}),
   /** Formik's `touched` object, accessed with *name* as key. */
   touched: PropTypes.shape({}),
+  /** Optional footnote displayed under the label. */
+  footnote: PropTypes.string,
 };
 
 export default InputField;

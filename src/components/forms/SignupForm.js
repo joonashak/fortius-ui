@@ -38,6 +38,7 @@ export default ({ onSubmit }) => (
           <InputField
             name="email"
             label="E-mail"
+            footnote="(Optional, but the only way to recover access if you lose your password.)"
             errors={errors}
             touched={touched}
           />

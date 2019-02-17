@@ -4,9 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 import { IconContext } from 'react-icons';
 import { MdHome } from 'react-icons/md';
 import { IoMdLogOut } from 'react-icons/io';
+import { CombinedConsumer } from '../contexts/CombinedContext';
 
 
-export default () => (
+const PrivateMenu = ({ unsetToken }) => (
   <IconContext.Provider value={{ size: '100%', className: 'menu-icon' }}>
     <Nav>
       <Link to="/">
@@ -15,10 +16,16 @@ export default () => (
       </Link>
     </Nav>
     <Nav>
-      <Link to="/">
+      <Link to="/" onClick={unsetToken}>
         <IoMdLogOut />
-        Log Out FIXTHIS
+        Log Out
       </Link>
     </Nav>
   </IconContext.Provider>
+);
+
+export default (props) => (
+  <CombinedConsumer>
+    {({ userContext }) => <PrivateMenu {...props} unsetToken={userContext.unsetToken} />}
+  </CombinedConsumer>
 );

@@ -21,7 +21,7 @@ export class UserProvider extends React.Component {
     configureToken(token);
   };
 
-  unsetToken = () => this.setState({ token: '' });
+  unsetToken = () => this.setToken('');
 
   loggedIn = () => this.state.token !== '';
 

@@ -45,6 +45,7 @@ export default ({ onSubmit }) => (
           <InputField
             name="password"
             label="Password"
+            type="password"
             errors={errors}
             touched={touched}
           />

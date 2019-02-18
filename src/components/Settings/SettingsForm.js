@@ -4,7 +4,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import InputField from './InputField';
+import InputField from '../forms/InputField';
 import NavButton from '../utils/NavButton';
 
 

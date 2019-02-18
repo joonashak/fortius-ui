@@ -15,10 +15,10 @@ export class UserProvider extends React.Component {
     };
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
+    // Configure saved token for requests.
+    // Doing this in componentWillMount ensures the token is available for all components.
     const { token } = this.state;
-
-    // Configure saved token for requests
     if (token !== '') {
       configureToken(token);
     }

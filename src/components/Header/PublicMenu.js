@@ -16,7 +16,7 @@ export default () => (
     </Nav>
     <Nav>
       <Link to="/login">
-        <IoMdLogIn />
+        <IoMdLogIn className="accent" />
         Log In
       </Link>
     </Nav>

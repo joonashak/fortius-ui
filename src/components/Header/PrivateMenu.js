@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import { IconContext } from 'react-icons';
-import { MdHome } from 'react-icons/md';
+import { MdHome, MdSettings } from 'react-icons/md';
 import { IoMdLogOut } from 'react-icons/io';
 import { CombinedConsumer } from '../contexts/CombinedContext';
 
@@ -16,8 +16,14 @@ const PrivateMenu = ({ unsetToken }) => (
       </Link>
     </Nav>
     <Nav>
+      <Link to="/settings">
+        <MdSettings className="accent" />
+        Settings
+      </Link>
+    </Nav>
+    <Nav>
       <Link to="/" onClick={unsetToken}>
-        <IoMdLogOut />
+        <IoMdLogOut className="accent" />
         Log Out
       </Link>
     </Nav>

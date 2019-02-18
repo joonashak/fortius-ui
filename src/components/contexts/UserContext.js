@@ -15,6 +15,15 @@ export class UserProvider extends React.Component {
     };
   }
 
+  componentDidMount = () => {
+    const { token } = this.state;
+
+    // Configure saved token for requests
+    if (token !== '') {
+      configureToken(token);
+    }
+  };
+
   setToken = (token) => {
     this.setState({ token });
     localStorage.setItem('token', token);

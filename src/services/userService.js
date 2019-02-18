@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiUri } from '../config';
+import { apiUri, getAxiosConfig } from '../config';
 
 
 const uri = `${apiUri}/users`;
@@ -18,4 +18,20 @@ const create = async (data) => {
   }
 };
 
-export default { create };
+/**
+ * Attempt to update logged in user's data.
+ * Follows the JSON Merge Patch format.
+ * @param {object} data - Only included fields are updated.
+ */
+const update = async (data) => {
+  const config = getAxiosConfig();
+
+  try {
+    const result = await axios.patch(uri, data, config);
+    return result.data;
+  } catch (error) {
+    return { error };
+  }
+};
+
+export default { create, update };

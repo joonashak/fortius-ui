@@ -9,6 +9,7 @@ $dark: #0B3C5D
 $light: #328CC1
 $accent: #EBC317
 $light-text: #FDFDFD
+$danger: #CC1800
 
 body
   font: 100% $font
@@ -155,10 +156,36 @@ p
   @extend .button-accent:active
   outline: none
 
+.button-danger
+  @extend .button
+  background-color: $danger
+  color: $darkest
+
+.button-danger:active
+  background-color: $danger !important
+  color: $dark !important
+
+.button-danger:focus
+  @extend .button-danger:active
+  outline: none
+
+.button-danger-accent
+  @extend .button
+  color: $danger
+
+.button-danger-accent:active
+  background-color: $light !important
+  color: $dark !important
+
+.button-danger-accent:focus
+  @extend .button-danger-accent:active
+  outline: none
+
 .fields
   width: 87%
   max-width: 400px
   margin: 0 auto
+  text-align: left
 
 input
   background-color: $light
@@ -175,6 +202,12 @@ input
 input:focus
   outline: none
   border: 2px solid $accent
+
+input.danger
+  border-bottom: 2px solid $danger
+
+input.danger:focus
+  border: 2px solid $danger
 
 label
   width: 100%

@@ -5,6 +5,7 @@ import React from 'react';
 import { CombinedConsumer } from '../contexts/CombinedContext';
 import SettingsForm from './SettingsForm';
 import userService from '../../services/userService';
+import DeleteAccount from './DeleteAccount';
 
 
 class Settings extends React.Component {
@@ -47,6 +48,7 @@ class Settings extends React.Component {
       ? (
         <div>
           <SettingsForm onSubmit={this.update} initialValues={this.state.initialValues} />
+          <DeleteAccount />
         </div>
       ) : null
   );

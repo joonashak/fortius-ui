@@ -5,7 +5,6 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import InputField from '../forms/InputField';
-import NavButton from '../utils/NavButton';
 
 
 const validationSchema = yup.object().shape({
@@ -39,7 +38,6 @@ export default ({ onSubmit, initialValues }) => (
           />
         </div>
         <button type="submit" className="button-accent mt-5">Save</button>
-        <NavButton to="/" text="Back" />
       </Form>
     )}
   </Formik>

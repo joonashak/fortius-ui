@@ -48,4 +48,23 @@ const get = async () => {
   }
 };
 
-export default { create, update, get };
+/**
+ * Delete the logged in user.
+ */
+const deleteUser = async () => {
+  const config = getAxiosConfig();
+
+  try {
+    const result = await axios.delete(uri, config);
+    return result.data;
+  } catch (error) {
+    return { error };
+  }
+};
+
+export default {
+  create,
+  update,
+  get,
+  deleteUser,
+};

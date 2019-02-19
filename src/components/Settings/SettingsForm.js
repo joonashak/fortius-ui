@@ -13,18 +13,13 @@ const validationSchema = yup.object().shape({
   password: yup.string(),
 });
 
-const initialValues = {
-  email: '',
-  password: '',
-};
-
-export default ({ onSubmit }) => (
+export default ({ onSubmit, initialValues }) => (
   <Formik
     initialValues={initialValues}
     validationSchema={validationSchema}
     onSubmit={onSubmit}
   >
-    {({ errors, touched }) => (
+    {({ errors, touched, values }) => (
       <Form>
         <div className="fields">
           <InputField
@@ -33,6 +28,7 @@ export default ({ onSubmit }) => (
             footnote="(Optional, but the only way to recover access if you lose your password.)"
             errors={errors}
             touched={touched}
+            value={values.email}
           />
           <InputField
             name="password"

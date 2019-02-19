@@ -34,4 +34,18 @@ const update = async (data) => {
   }
 };
 
-export default { create, update };
+/**
+ * Get logged in user's information.
+ */
+const get = async () => {
+  const config = getAxiosConfig();
+
+  try {
+    const result = await axios.get(uri, config);
+    return result.data;
+  } catch (error) {
+    return { error };
+  }
+};
+
+export default { create, update, get };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import { IconContext } from 'react-icons';
-import { MdHome, MdSettings } from 'react-icons/md';
+import { MdHome, MdSettings, MdFitnessCenter } from 'react-icons/md';
 import { IoMdLogOut } from 'react-icons/io';
 import { CombinedConsumer } from '../contexts/CombinedContext';
 
@@ -13,6 +13,12 @@ const PrivateMenu = ({ unsetToken }) => (
       <Link to="/">
         <MdHome />
         Home
+      </Link>
+    </Nav>
+    <Nav>
+      <Link to="/workouts">
+        <MdFitnessCenter />
+        Past Workouts
       </Link>
     </Nav>
     <Nav>

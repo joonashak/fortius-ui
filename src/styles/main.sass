@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Open+Sans:300,400')
 @import ~bootstrap/scss/bootstrap
 
+// Global variables
+
 $font: Open Sans, sans-serif
 $accent-font: Audiowide, sans-serif
 // Themed colors
@@ -10,6 +12,14 @@ $light: #328CC1
 $accent: #EBC317
 $light-text: #FDFDFD
 $danger: #CC1800
+
+// Partials
+@import 'buttons'
+@import 'forms'
+@import 'menu'
+@import 'notifications'
+@import 'typography'
+@import 'lists'
 
 body
   font: 100% $font
@@ -39,201 +49,7 @@ body
     width: 100%
     padding: 3px 5px
 
-// Notification modal
-
-.f-modal
-  background-color: $light
-  color: $dark
-  border: 4px solid $accent
-  border-radius: 0
-  max-width: 92%
-  margin: 0 auto
-
-.f-modal-info
-  .modal-content
-    @extend .f-modal
-
-.f-modal-error
-  .modal-content
-    @extend .f-modal
-    color: #670000
-    border-color: #ff4f4f
-
-
-.modal-body
-  text-align: center
-  p
-    font-size: 24px
-    font-weight: 400
-    margin-bottom: 5px
-
-.modal-backdrop.show
-  opacity: 0.7
-
-// Menu
-
-nav
-  background-color: $darkest !important
-  padding: 0 !important
-
-.logo
-  margin: 15px auto
-  max-width: 328px
-  width: 98%
-
-.view-title
-  font-size: 34px
-  color: $accent
-  margin: 7px 20px
-
-.navbar-nav
-  a
-    border-top: 1px solid $accent
-    text-decoration: none
-    font-size: 22px
-
-.menu-icon
-  color: $light
-  width: 32px
-  margin: 13px
-
-.hamburger
-  color: $light
-  width: 56px
-  margin-right: 18px
-
-// Typography
-
-a
-  color: $light-text
-  text-decoration: underline
-
-h4
-  font-size: 20px
-  font-weight: 300
-
-p
-  font-size: 14px
-  font-weight: 300
-
-.accent
-  color: $accent
-
-// Forms and buttons
-
-.button
-  background-color: $light
-  color: $light-text
-  border: 0
-  border-radius: 0
-  font: 30px $accent-font
-  text-transform: uppercase
-  height: 65px
-  display: block
-  width: 100%
-  max-width: 400px
-  padding: 0
-  margin: 0 auto
-  cursor: pointer
-
-.button:active
-  background-color: $light !important
-  color: $accent !important
-
-.button:focus
-  @extend .button:active
-  outline: none
-
-.button-accent
-  @extend .button
-  background-color: $accent
-
-.button-accent:active
-  background-color: $accent !important
-  color: $dark !important
-
-.button-accent:focus
-  @extend .button-accent:active
-  outline: none
-
-.button-danger
-  @extend .button
-  background-color: $danger
-  color: $darkest
-
-.button-danger:active
-  background-color: $danger !important
-  color: $dark !important
-
-.button-danger:focus
-  @extend .button-danger:active
-  outline: none
-
-.button-danger-accent
-  @extend .button
-  color: $danger
-
-.button-danger-accent:active
-  background-color: $light !important
-  color: $dark !important
-
-.button-danger-accent:focus
-  @extend .button-danger-accent:active
-  outline: none
-
-.fields
-  width: 87%
-  max-width: 400px
-  margin: 0 auto
-  text-align: left
-
-input
-  background-color: $light
-  border: 2px solid $light
-  border-bottom: 2px solid $accent
-  display: block
-  margin: 2rem auto 0 auto
-  padding: 6px
-  width: 100%
-  font: 28px $font
-  font-weight: 400
-  color: $darkest
-
-input:focus
-  outline: none
-  border: 2px solid $accent
-
-input.danger
-  border-bottom: 2px solid $danger
-
-input.danger:focus
-  border: 2px solid $danger
-
-label
-  width: 100%
-  padding: 0 3px
-  text-align: left
-  text-transform: uppercase
-  font-size: 14px
-  letter-spacing: .12em
-
-label.footnote
-  font-size: 12px
-  text-transform: none
-  letter-spacing: 0
-  font-style: italic
-  color: $light
-  line-height: 16px
-
-label.validation-error
-  @extend label.footnote
-  color: $accent
-  font-style: normal
-  text-align: center
-  padding: 0
-  margin: 0
-
-// Utility classes
+// Misc. utility classes
 
 .center
   text-align: center

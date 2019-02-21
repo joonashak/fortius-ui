@@ -1,0 +1,62 @@
+// Buttons
+  
+.button
+  background-color: $light
+  color: $light-text
+  border: 0
+  border-radius: 0
+  font: 30px $accent-font
+  text-transform: uppercase
+  height: 65px
+  display: block
+  width: 100%
+  max-width: 400px
+  padding: 0
+  margin: 0 auto
+  cursor: pointer
+
+.button:active
+  background-color: $light !important
+  color: $accent !important
+
+.button:focus
+  @extend .button:active
+  outline: none
+
+.button-accent
+  @extend .button
+  background-color: $accent
+
+.button-accent:active
+  background-color: $accent !important
+  color: $dark !important
+
+.button-accent:focus
+  @extend .button-accent:active
+  outline: none
+
+.button-danger
+  @extend .button
+  background-color: $danger
+  color: $darkest
+
+.button-danger:active
+  background-color: $danger !important
+  color: $dark !important
+
+.button-danger:focus
+  @extend .button-danger:active
+  outline: none
+
+.button-danger-accent
+  @extend .button
+  color: $danger
+
+.button-danger-accent:active
+  background-color: $light !important
+  color: $dark !important
+
+.button-danger-accent:focus
+  @extend .button-danger-accent:active
+  outline: none
+  

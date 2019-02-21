@@ -1,0 +1,30 @@
+// Notification modal
+
+.f-modal
+  background-color: $light
+  color: $dark
+  border: 4px solid $accent
+  border-radius: 0
+  max-width: 92%
+  margin: 0 auto
+
+.f-modal-info
+  .modal-content
+    @extend .f-modal
+
+.f-modal-error
+  .modal-content
+    @extend .f-modal
+    color: #670000
+    border-color: #ff4f4f
+
+
+.modal-body
+  text-align: center
+  p
+    font-size: 24px
+    font-weight: 400
+    margin-bottom: 5px
+
+.modal-backdrop.show
+  opacity: 0.7

@@ -21,7 +21,8 @@ export default () => (
           Welcome to Fortius!
         </h4>
         <p className="pt-3 pb-5">
-          You need an account to use this app.
+          You need an account to use this app. Also, please note that at the moment
+          Fortius is designed only for mobile phone browsers (might look funny on larger screens).
         </p>
         <NavButton to="/login" text="Log In" accent />
         <NavButton to="/signup" text="Sign Up" />

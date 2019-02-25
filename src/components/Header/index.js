@@ -30,6 +30,7 @@ export default class Header extends React.Component {
         expanded={expanded}
         onToggle={this.toggle}
         onClick={this.toggle}
+        fixed="top"
       >
         {/* TODO: Embed SVG */}
         {

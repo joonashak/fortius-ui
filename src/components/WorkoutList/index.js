@@ -48,7 +48,7 @@ const WorkoutList = ({ type }) => (
         Edit
       </Col>
     </Row>
-    <Row>
+    <Row className="after-fixed-list-header">
       <Col xs={12}>
         <NavButton to="/" text="Create New" accent />
         {devData.map((session) => <WorkoutListItem session={session} key={`list-item-${session.publicId}`} />)}

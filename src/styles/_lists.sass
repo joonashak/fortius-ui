@@ -1,11 +1,15 @@
 // Lists
 
 .list-header
+  position: fixed
   background-color: $light
   color: $dark
   font-weight: 400
   text-transform: uppercase
   height: 50px
+  width: 100%
+  margin: 0
+  z-index: 1
 
   div
     height: 50px
@@ -22,6 +26,9 @@
 .list-header-icon
   width: 32px
   margin-left: 10px
+
+.after-fixed-list-header
+    padding-top: 50px
 
 .big-list-item
   border-top: 1px solid $darkest

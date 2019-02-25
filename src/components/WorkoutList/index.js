@@ -6,8 +6,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { MdImportExport, MdArrowUpward } from 'react-icons/md';
 import NavButton from '../utils/NavButton';
+import ListHeader from './ListHeader';
 import WorkoutListItem from './WorkoutListItem';
 
 
@@ -36,18 +36,7 @@ const devData = [
 
 const WorkoutList = ({ type }) => (
   <div className="content">
-    <Row className="list-header">
-      <Col xs={4} className="list-header-left">
-        <MdImportExport size="100%" className="list-header-icon" />
-        Date
-      </Col>
-      <Col className="list-header-middle">
-        <MdArrowUpward size="100%" className="list-header-icon" />
-      </Col>
-      <Col xs={4} className="list-header-right">
-        Edit
-      </Col>
-    </Row>
+    <ListHeader />
     <Row className="after-fixed-list-header">
       <Col xs={12}>
         <NavButton to="/" text="Create New" accent />

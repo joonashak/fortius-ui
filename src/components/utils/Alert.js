@@ -36,13 +36,7 @@ Alert.defaultProps = {
 
 Alert.propTypes = {
   message: PropTypes.string,
-  // FIXME: Too complex, refactor with .oneOf()
-  variant: (props, propName, componentName) => { // eslint-disable-line consistent-return
-    const valids = ['', 'info', 'error'];
-    if (!valids.includes(props[propName])) {
-      return new Error(`Invalid prop '${propName}' supplied to component '${componentName}'`);
-    }
-  },
+  variant: PropTypes.oneOf(['', 'info', 'error']),
 };
 
 export default (props) => (

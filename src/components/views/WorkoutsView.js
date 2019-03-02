@@ -13,6 +13,6 @@ export default () => (
     <Header title="Workouts">
       <DynamicMenu />
     </Header>
-    <WorkoutList type="history" />
+    <WorkoutList type="workouts" />
   </Container>
 );

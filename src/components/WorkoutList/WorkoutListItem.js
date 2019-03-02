@@ -14,6 +14,7 @@ export default ({ session }) => {
   const diff = moment.duration(moment().diff(date));
   const week = moment.duration(7, 'd');
 
+  // TODO: Add today and yesterday.
   const title = (diff < week)
     ? `Last ${date.format('dddd')}`
     : date.format('YYYY-MM-DD HH:MM');

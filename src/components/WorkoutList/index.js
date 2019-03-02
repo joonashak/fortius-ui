@@ -6,49 +6,91 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import InfiniteScroll from 'react-infinite-scroller';
 import NavButton from '../utils/NavButton';
 import ListHeader from './ListHeader';
 import WorkoutListItem from './WorkoutListItem';
+import sessionService from '../../services/sessionService';
 
 
-const devData = [
-  {
-    publicId: 'a',
-    createdAt: '2019-02-17T21:39:16.307057+00:00',
-    isCurrent: false,
-  },
-  {
-    publicId: 'b',
-    createdAt: '2019-02-18T21:39:16.307057+00:00',
-    isCurrent: true,
-  },
-  {
-    publicId: 'c',
-    createdAt: '2019-02-09T21:39:16.307057+00:00',
-    isCurrent: false,
-  },
-  {
-    publicId: 'd',
-    createdAt: '2019-02-07T21:39:16.307057+00:00',
-    isCurrent: false,
-  },
-];
+class WorkoutList extends React.Component {
+  constructor(props) {
+    super(props);
 
-const WorkoutList = ({ type }) => (
-  <div className="content">
-    <ListHeader />
-    <Row className="after-fixed-list-header">
-      <Col xs={12}>
-        <NavButton to="/" text="Create New" accent />
-        {devData.map((session) => <WorkoutListItem session={session} key={`list-item-${session.publicId}`} />)}
-      </Col>
-    </Row>
-  </div>
-);
+    this.state = {
+      sessions: [],
+      hasMore: true,
+      loading: true,
+      selectedItems: [],
+      order: this.props.type === 'workouts' ? 'desc' : 'asc',
+    };
+  }
+
+  componentDidMount = async () => {
+    /**
+     * Initial load in react-infinite-scroller doesn't appear to work. Load first page
+     * of data here and set <InfiniteScroll initialLoad={false}>.
+     */
+    await this.loadMore(1);
+  };
+
+  loadMore = async (page) => {
+    this.setState({ loading: true });
+    const { order } = this.state;
+    const newSessions = await sessionService.get('workouts', order, page);
+
+    newSessions.length
+      ? this.setState(prevState => ({ sessions: prevState.sessions.concat(newSessions) }))
+      : this.setState({ hasMore: false });
+    this.setState({ loading: false });
+  };
+
+  changeOrder = async () => this.setState(async (prevState) => {
+    const { type } = this.props;
+    const order = prevState.order === 'desc' ? 'asc' : 'desc';
+    const sessions = await sessionService.get(type, order, 1);
+    return { sessions, order };
+  });
+
+  render = () => {
+    const { sessions, loading, hasMore } = this.state;
+
+    return (
+      <div className="content">
+        <ListHeader />
+        <Row className="after-fixed-list-header">
+          <Col xs={12}>
+            <NavButton to="/" text="Create New" accent />
+            <InfiniteScroll
+              pageStart={1}
+              loadMore={this.loadMore}
+              hasMore={hasMore}
+              initialLoad={false}
+              className="big-list"
+            >
+              {sessions.map((session) => <WorkoutListItem session={session} key={`list-item-${session.public_key}`} />)}
+            </InfiniteScroll>
+            {loading
+              ? (
+                <Row className="big-list-item">
+                  <Col className="list-msg">Loading...</Col>
+                </Row>
+              ) : !hasMore
+              ? (
+                <Row className="big-list-item">
+                  <Col className="list-msg">All data loaded.</Col>
+                </Row>
+              ) : null}
+          </Col>
+        </Row>
+      </div>
+    );
+  }
+}
 
 WorkoutList.propTypes = {
   /** Switch between showing past workouts and future plans. */
-  type: PropTypes.oneOf(['history', 'planned']).isRequired,
+  type: PropTypes.oneOf(['workouts', 'plans']).isRequired,
 };
 
 export default WorkoutList;
